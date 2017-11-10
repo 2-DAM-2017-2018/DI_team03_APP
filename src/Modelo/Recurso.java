@@ -9,6 +9,7 @@ package Modelo;
  *
  * @author Felipe Pérez Sillero
  */
-public class Recurso {
-    
+public class Recurso 
+{
+    private String nombre;
 }
