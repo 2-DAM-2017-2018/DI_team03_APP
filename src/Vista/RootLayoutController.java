@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package di_team03_app;
+package Vista;
+
+import Principal.MainApp;
 
 /**
  * FXML Controller class
