@@ -43,7 +43,7 @@ public class PieChartStatisticController {
         int[] monthCounter = new int[12];
         int totalCounter = 0;
         for (Reserva p : persons) {
-            int month = p.getNombreSala().getMonthValue() - 1;
+            int month = p.getSala().getMonthValue() - 1;
             monthCounter[month]++;
             totalCounter++;
         }
