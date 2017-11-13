@@ -20,19 +20,34 @@
                   </TableView>
                   <RadioButton layoutX="7.0" layoutY="33.0" mnemonicParsing="false" text="Salas" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="5.0" />
                   <RadioButton layoutX="100.0" layoutY="33.0" mnemonicParsing="false" text="Herramientas" AnchorPane.bottomAnchor="355.0" AnchorPane.rightAnchor="5.0" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="6.0" text="Selecciona una opcion" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0" />
+                  <Label alignment="CENTER" layoutX="80.0" layoutY="6.0" text="Selecciona una opcion" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0" />
                   <Button layoutX="5.0" layoutY="361.0" mnemonicParsing="false" text="Nuevo" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="30.0" />
                   <Button layoutX="143.0" layoutY="361.0" mnemonicParsing="false" text="Eliminar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="30.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="86.0" layoutY="6.0" text="Label" />
+                  <Label alignment="CENTER" layoutX="86.0" layoutY="6.0" text="Días" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0" />
+                  <DatePicker layoutX="13.0" layoutY="188.0" />
                </children>
                <HBox.margin>
                   <Insets />
                </HBox.margin></AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutY="83.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                     <columns>
+                        <TableColumn prefWidth="100.0" text="Horas" />
+                        <TableColumn prefWidth="99.0" text="¿Libre?" />
+                     </columns>
+                  </TableView>
+                  <Label alignment="CENTER" layoutX="86.0" layoutY="14.0" text="Solicitud" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0" />
+                  <Button layoutX="39.0" layoutY="361.0" mnemonicParsing="false" text="Solicitar" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="30.0" />
+                  <Button layoutX="111.0" layoutY="361.0" mnemonicParsing="false" text="Borrar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="30.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></AnchorPane>
          </children>
       </HBox>
    </children>

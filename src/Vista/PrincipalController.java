@@ -5,9 +5,13 @@
  */
 package Vista;
 
+import Modelo.Recurso;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -16,6 +20,11 @@ import javafx.fxml.Initializable;
  */
 public class PrincipalController implements Initializable {
 
+    @FXML
+    private TableView<Recurso> recursoTable;
+    @FXML
+    private TableColumn<Recurso, String> recursoColumn;
+    
     /**
      * Initializes the controller class.
      */
