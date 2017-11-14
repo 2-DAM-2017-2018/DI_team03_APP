@@ -5,7 +5,6 @@
  */
 package Vista;
 
-import Modelo.Reserva;
 import java.net.URL;
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
@@ -39,11 +38,11 @@ public class PieChartStatisticController {
         
     }
     
-    public void setPersonData(List<Reserva> persons) {
+    public void setPersonData(List<Person> persons) {
         int[] monthCounter = new int[12];
         int totalCounter = 0;
-        for (Reserva p : persons) {
-            int month = p.getSala().getMonthValue() - 1;
+        for (Person p : persons) {
+            int month = p.getBirthday().getMonthValue() - 1;
             monthCounter[month]++;
             totalCounter++;
         }
