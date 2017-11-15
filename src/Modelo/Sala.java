@@ -32,5 +32,8 @@ public class Sala extends Recurso {
         this.idSala.set(idSala);
     }
     
+    public IntegerProperty idSala() {
+        return idSala;
+    }
     
 }

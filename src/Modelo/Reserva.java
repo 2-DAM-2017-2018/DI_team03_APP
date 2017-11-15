@@ -40,6 +40,10 @@ public class Reserva {
     public void setId(int id) {
         this.id_prof.set(id);
     }
+    
+    public IntegerProperty idProf() {
+        return id_prof;
+    }
 
     public String getNombre() {
         return nombre_prof.get();
@@ -47,6 +51,10 @@ public class Reserva {
     
     public void setNombre(String nombre) {
         this.nombre_prof.set(nombre);
+    }
+    
+    public StringProperty nombreProf() {
+        return nombre_prof;
     }
 
     public String getSala() {
@@ -56,12 +64,20 @@ public class Reserva {
     public void setSala(String sala) {
         this.sala.set(sala);
     }
+    
+    public StringProperty sala() {
+        return sala;
+    }
 
     public String getHerramienta() {
         return herramienta.get();
     }
     public void setHerramienta(String herramienta) {
         this.herramienta.set(herramienta);
+    }
+    
+    public StringProperty herramienta() {
+        return herramienta;
     }
 
     public String getComentario() {
@@ -70,12 +86,20 @@ public class Reserva {
     public void setComentario(String comentario) {
         this.comentario.set(comentario);
     }
+    
+    public StringProperty comentario() {
+        return comentario;
+    }
 
     public LocalDate getHora_inicio() {
         return hora_inicio.get();
     }
     public void setHoraInicio(LocalDate inicio) {
         this.hora_inicio.set(inicio);
+    }
+    
+    public ObjectProperty<LocalDate> horaInicio() {
+        return hora_inicio;
     }
 
     public LocalDate getHora_final() {
@@ -84,6 +108,10 @@ public class Reserva {
     
     public void setHoraFinal(LocalDate fin) {
         this.hora_final.set(fin);
+    }
+    
+    public ObjectProperty<LocalDate> horaFinal() {
+        return hora_final;
     }
     
     

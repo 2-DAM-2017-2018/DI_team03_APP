@@ -30,4 +30,8 @@ public class Recurso {
     public void setNombre(String nombre) {
         this.nombre.set(nombre);
     }
+    
+    public StringProperty nombre() {
+        return nombre;
+    }
 }

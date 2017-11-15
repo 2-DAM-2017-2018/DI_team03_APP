@@ -32,5 +32,9 @@ public class Herramienta extends Recurso {
         this.idHerramienta.set(idHerramienta);
     }
     
+    public IntegerProperty idHerramienta() {
+        return idHerramienta;
+    }
+    
     
 }
