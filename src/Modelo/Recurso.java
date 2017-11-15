@@ -5,26 +5,29 @@
  */
 package Modelo;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  *
  * @author Felipe Pérez Sillero
  */
 public class Recurso {
-    private String nombre;
+    private StringProperty nombre;
 
     public Recurso() {
         this.nombre = null;
     }
 
     public Recurso(String nombre) {
-        this.nombre = nombre;
+        this.nombre = new SimpleStringProperty(nombre);
     }
 
     public String getNombre() {
-        return nombre;
+        return nombre.get();
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre.set(nombre);
     }
 }

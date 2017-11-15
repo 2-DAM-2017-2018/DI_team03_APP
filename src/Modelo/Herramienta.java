@@ -5,28 +5,31 @@
  */
 package Modelo;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 /**
  *
  * @author Alejandro
  */
 public class Herramienta extends Recurso {
-    private int idHerramienta;
+    private final IntegerProperty idHerramienta;
 
     public Herramienta() {
-        this.idHerramienta = 0;
+        this.idHerramienta = null;
     }
 
     public Herramienta(String nombre, int idHerramienta) {
         super(nombre);
-        this.idHerramienta = idHerramienta;
+        this.idHerramienta = new SimpleIntegerProperty(idHerramienta);
     }
 
     public int getIdHerramienta() {
-        return idHerramienta;
+        return idHerramienta.get();
     }
 
     public void setIdHerramienta(int idHerramienta) {
-        this.idHerramienta = idHerramienta;
+        this.idHerramienta.set(idHerramienta);
     }
     
     

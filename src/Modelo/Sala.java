@@ -5,20 +5,31 @@
  */
 package Modelo;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 /**
  *
  * @author Alejandro
  */
 public class Sala extends Recurso {
-    private int idSala;
+    private IntegerProperty idSala;
 
     public Sala() {
-        this.idSala = 0;
+        this.idSala = null;
     }
 
     public Sala(String nombre, int idSala) {
         super(nombre);
-        this.idSala = idSala;
+        this.idSala = new SimpleIntegerProperty(idSala);
+    }
+
+    public int getIdSala() {
+        return idSala.get();
+    }
+
+    public void setIdSala(int idSala) {
+        this.idSala.set(idSala);
     }
     
     
