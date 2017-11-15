@@ -7,6 +7,7 @@ package Vista;
 
 import Modelo.Recurso;
 import Modelo.Hora;
+import Modelo.Sala;
 import Principal.MainApp;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,11 +60,20 @@ public class PrincipalController
     {      
     }
     
-    public void initialize(){
-        // TODO
+    public void initialize()
+    {
+        if(salas.isSelected())
+            recursoColumn.setCellValueFactory(cellData -> cellData.getValue().nombre());
+        if(herramientas.isSelected())
+            recursoColumn.setCellValueFactory(cellData -> cellData.getValue().nombre());
+        
+        //recursoTable.getSelectionModel().selectedItemProperty().addListener(
+            //(observable, oldValue, newValue) -> showResourceDetails(newValue);
     }    
     
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
+        
+        recursoTable.setItems(mainApp.getDatosRecursos());
     }
 }
