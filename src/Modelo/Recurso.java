@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -14,15 +16,30 @@ import javafx.beans.property.StringProperty;
  */
 public class Recurso {
     private StringProperty nombre;
+    private IntegerProperty id;
 
     public Recurso() {
         this.nombre = null;
+        this.id = null;
     }
 
-    public Recurso(String nombre) {
+    public Recurso(int id, String nombre) {
+        this.id = new SimpleIntegerProperty(id);
         this.nombre = new SimpleStringProperty(nombre);
     }
 
+    public int getId() {
+        return id.get();
+    }
+    
+    public void setId(int id) {
+        this.id.set(id);
+    }
+    
+    public IntegerProperty idProperty() {
+        return id;
+    }
+    
     public String getNombre() {
         return nombre.get();
     }
@@ -31,7 +48,7 @@ public class Recurso {
         this.nombre.set(nombre);
     }
     
-    public StringProperty nombre() {
+    public StringProperty nombreProperty() {
         return nombre;
     }
 }
