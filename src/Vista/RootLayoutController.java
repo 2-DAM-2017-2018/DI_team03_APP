@@ -6,6 +6,7 @@
 package Vista;
 
 import Principal.MainApp;
+import javafx.fxml.FXML;
 
 /**
  * FXML Controller class
@@ -18,6 +19,12 @@ public class RootLayoutController {
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
+    }
+    
+    @FXML
+    private void handleNew() {
+        mainApp.getDatosRecursos().clear();
+        mainApp.setPersonFilePath(null);
     }
 
 }

@@ -6,7 +6,8 @@
 package Principal;
 
 import Modelo.Recurso;
-import Vista.AgregarSalaController;
+import Modelo.RecursoListWrapper;
+import Vista.EditarRecursoController;
 import Vista.PieChartStatisticController;
 import Vista.PrincipalController;
 import Vista.RootLayoutController;
@@ -24,6 +25,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
 /**
  *
@@ -46,7 +50,7 @@ public class MainApp extends Application {
 
         initRootLayout();
 
-        showPersonOverview();
+        showPrincipal();
     }
 
     public ObservableList<Recurso> getDatosRecursos() {
@@ -71,14 +75,14 @@ public class MainApp extends Application {
         }
     }
 
-    public void showPersonOverview() {
+    public void showPrincipal() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/PersonOverview.fxml"));
-            AnchorPane personOverview = (AnchorPane) loader.load();
+            loader.setLocation(MainApp.class.getResource("view/Principal.fxml"));
+            AnchorPane principal = (AnchorPane) loader.load();
 
-            rootLayout.setCenter(personOverview);
+            rootLayout.setCenter(principal);
 
             PrincipalController controller = loader.getController();
             controller.setMainApp(this);
@@ -104,7 +108,7 @@ public class MainApp extends Application {
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
-            AgregarSalaController controller = loader.getController();
+            EditarRecursoController controller = loader.getController();
             controller.setDialogStage(dialogStage);
 
             // Set the dialog icon.
@@ -128,7 +132,79 @@ public class MainApp extends Application {
         launch(args);
     }
     
-    public void showPieChart() {
+    public File getPersonFilePath() {
+        Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+        String filePath = prefs.get("filePath", null);
+        if (filePath != null) {
+            return new File(filePath);
+        } else {
+            return null;
+        }
+    }
+    
+    public void setPersonFilePath(File file) {
+        Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+        if (file != null) {
+            prefs.put("filePath", file.getPath());
+
+            // Update the stage title.
+            primaryStage.setTitle("AddressApp - " + file.getName());
+        } else {
+            prefs.remove("filePath");
+
+            // Update the stage title.
+            primaryStage.setTitle("AddressApp");
+        }
+    }
+    
+    public void loadPersonDataFromFile(File file) {
+       try {
+           JAXBContext context = JAXBContext
+                   .newInstance(RecursoListWrapper.class);
+           Unmarshaller um = context.createUnmarshaller();
+
+           // Reading XML from the file and unmarshalling.
+           RecursoListWrapper wrapper = (RecursoListWrapper) um.unmarshal(file);
+
+           datosRecursos.clear();
+           datosRecursos.addAll(wrapper.getRecursos());
+
+           // Save the file path to the registry.
+           setPersonFilePath(file);
+
+       } catch (Exception e) { // catches ANY exception
+   //        Dialogs.create()
+   //                .title("Error")
+   //                .masthead("Could not load data from file:\n" + file.getPath())
+   //                .showException(e);
+       }
+    }
+    
+    public void savePersonDataToFile(File file) {
+        try {
+            JAXBContext context = JAXBContext
+                    .newInstance(RecursoListWrapper.class);
+            Marshaller m = context.createMarshaller();
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            // Wrapping our person data.
+            RecursoListWrapper wrapper = new RecursoListWrapper();
+            wrapper.setPersons(datosRecursos);
+
+            // Marshalling and saving XML to the file.
+            m.marshal(wrapper, file);
+
+            // Save the file path to the registry.
+            setPersonFilePath(file);
+        } catch (Exception e) { // catches ANY exception
+    //                Dialogs.create().title("Error")
+    //                .masthead("Could not save data to file:\n" + file.getPath())
+    //                .showException(e);
+        }
+    }
+    
+    
+    /*public void showPieChart() {
        try {
            FXMLLoader loader = new FXMLLoader();
            loader.setLocation(MainApp.class.getResource("view/PieChartStatistic.fxml"));
@@ -148,6 +224,6 @@ public class MainApp extends Application {
        } catch (IOException e) {
            e.printStackTrace();
        }
-   }
+   }*/
 
 }
