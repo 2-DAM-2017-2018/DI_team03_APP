@@ -7,18 +7,12 @@ package Vista;
 
 import Modelo.Recurso;
 import Modelo.Hora;
-import Modelo.Sala;
 import Principal.MainApp;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.ToggleGroup;
 
 /**
  * FXML Controller class
@@ -39,10 +33,6 @@ public class PrincipalController
     private TableColumn<Hora, String> libreColumn;
     
     @FXML
-    private RadioButton salas;
-    @FXML
-    private RadioButton herramientas;
-    @FXML
     private DatePicker calendario;
     @FXML
     private Button nuevo;
@@ -53,7 +43,6 @@ public class PrincipalController
     @FXML
     private Button borrar;
     
-    private final ToggleGroup group = new ToggleGroup(); 
     private MainApp mainApp;
     
     public PrincipalController()
@@ -62,10 +51,9 @@ public class PrincipalController
     
     public void initialize()
     {
-        if(salas.isSelected())
-            recursoColumn.setCellValueFactory(cellData -> cellData.getValue().nombre());
-        if(herramientas.isSelected())
-            recursoColumn.setCellValueFactory(cellData -> cellData.getValue().nombre());
+        recursoColumn.setCellValueFactory(cellData -> cellData.getValue().nombre());
+        horasColumn.setCellValueFactory(cellData -> cellData.getValue().getHora());
+        libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibre());
         
         //recursoTable.getSelectionModel().selectedItemProperty().addListener(
             //(observable, oldValue, newValue) -> showResourceDetails(newValue);

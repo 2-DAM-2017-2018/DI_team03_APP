@@ -5,33 +5,36 @@
  */
 package Modelo;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  *
  * @author Felipe Pérez Sillero
  */
 public class Hora 
 {
-    private String hora;
-    private boolean libre;
+    private StringProperty hora;
+    private StringProperty libre;
 
-    public Hora(String hora, boolean libre) {
+    public Hora(StringProperty hora, StringProperty libre) {
         this.hora = hora;
         this.libre = libre;
     }
 
-    public String getHora() {
+    public StringProperty getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(StringProperty hora) {
         this.hora = hora;
     }
 
-    public boolean isLibre() {
+    public StringProperty getLibre() {
         return libre;
     }
 
-    public void setLibre(boolean libre) {
+    public void setLibre(StringProperty libre) {
         this.libre = libre;
     }
     
