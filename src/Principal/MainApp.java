@@ -5,6 +5,7 @@
  */
 package Principal;
 
+import Modelo.Hora;
 import Modelo.Recurso;
 import Modelo.RecursoListWrapper;
 import Vista.EditarRecursoController;
@@ -39,6 +40,7 @@ public class MainApp extends Application {
     private BorderPane rootLayout;
 
     private ObservableList<Recurso> datosRecursos = FXCollections.observableArrayList();
+    private ObservableList<Hora> horas = FXCollections.observableArrayList();
 
     @Override
     public void start(Stage stage) {
@@ -55,16 +57,21 @@ public class MainApp extends Application {
     
     public MainApp() {
         datosRecursos.add(new Recurso(1, "Gimnasio"));
+//        horas.add(new Hora());
     }
 
     public ObservableList<Recurso> getDatosRecursos() {
         return datosRecursos;
     }
+    
+    public ObservableList<Hora> getHoras() {
+        return horas;
+    }
 
     public void initRootLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("Vista/RootLayout.fxml"));
+            loader.setLocation(MainApp.class.getClassLoader().getResource("Vista/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             Scene scene = new Scene(rootLayout);
@@ -174,7 +181,7 @@ public class MainApp extends Application {
            datosRecursos.clear();
            datosRecursos.addAll(wrapper.getRecursos());
 
-           // Save the file path to the registry.
+           
            setRecursoFilePath(file);
 
        } catch (Exception e) { // catches ANY exception
@@ -192,14 +199,11 @@ public class MainApp extends Application {
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            // Wrapping our person data.
             RecursoListWrapper wrapper = new RecursoListWrapper();
             wrapper.setPersons(datosRecursos);
 
-            // Marshalling and saving XML to the file.
             m.marshal(wrapper, file);
 
-            // Save the file path to the registry.
             setRecursoFilePath(file);
         } catch (Exception e) { // catches ANY exception
     //                Dialogs.create().title("Error")
@@ -212,17 +216,17 @@ public class MainApp extends Application {
     /*public void showPieChart() {
        try {
            FXMLLoader loader = new FXMLLoader();
-           loader.setLocation(MainApp.class.getResource("view/PieChartStatistic.fxml"));
+           loader.setLocation(MainApp.class.getResource("Vista/PieChartStatistic.fxml"));
            AnchorPane page = (AnchorPane) loader.load();
            Stage dialogStage = new Stage();
-           dialogStage.setTitle("Birthday Statistics");
+           dialogStage.setTitle("Estadisticas de Reservas");
            dialogStage.initModality(Modality.WINDOW_MODAL);
            dialogStage.initOwner(primaryStage);
            Scene scene = new Scene(page);
            dialogStage.setScene(scene);
 
            PieChartStatisticController controller = loader.getController();
-           controller.setPersonData(personData);
+           //controller.setDatosRecursos(datosRecursos);
 
            dialogStage.show();
 

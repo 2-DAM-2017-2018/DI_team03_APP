@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Modelo.Recurso;
 import java.net.URL;
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
@@ -38,11 +39,11 @@ public class PieChartStatisticController {
         
     }
     
-    /*public void setPersonData(List<Person> persons) {
+    /*public void setDatosRecurso(List<Recurso> recursos) {
         int[] monthCounter = new int[12];
         int totalCounter = 0;
-        for (Person p : persons) {
-            int month = p.getBirthday().getMonthValue() - 1;
+        for (Recurso r : recursos) {
+            int month = r.getBirthday().getMonthValue() - 1;
             monthCounter[month]++;
             totalCounter++;
         }
