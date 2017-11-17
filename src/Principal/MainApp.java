@@ -96,7 +96,7 @@ public class MainApp extends Application {
         }
     }
     
-    public boolean mostrarEditarRecurso() {
+    public boolean mostrarEditarRecurso(Recurso recurso) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
@@ -114,6 +114,7 @@ public class MainApp extends Application {
             // Set the person into the controller.
             EditarRecursoController controller = loader.getController();
             controller.setDialogStage(dialogStage);
+            controller.setRecurso(recurso);
 
             // Set the dialog icon.
     //        dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
