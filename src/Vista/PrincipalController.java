@@ -74,6 +74,16 @@ public class PrincipalController
     @FXML
     private void botonNuevo()
     {
+        Recurso tempRecurso = new Recurso();
+        boolean okClicked = mainApp.mostrarEditarRecurso(tempRecurso);
+        if (okClicked) {
+            mainApp.getDatosRecursos().add(tempRecurso);
+        }
+    }
+    
+    @FXML
+    private void botonEliminar()
+    {
         int selectedIndex = recursoTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             recursoTable.getItems().remove(selectedIndex);
@@ -81,19 +91,14 @@ public class PrincipalController
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.initOwner(mainApp.getPrimaryStage());
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Person Selected");
-            alert.setContentText("Please select a person in the table.");
+            alert.setTitle("Sin seleccióin");
+            alert.setHeaderText("No hay recursos seleccionados");
+            alert.setContentText("Porfavor selecciona un recurso de la tabla");
 
             alert.showAndWait();
         }
     }
-    
-    @FXML
-    private void botonEliminar()
-    {
         
-    }
     
     @FXML
     private void botonSolicitar()
