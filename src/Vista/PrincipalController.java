@@ -57,7 +57,7 @@ public class PrincipalController
         libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibre());
         
         recursoTable.getSelectionModel().selectedItemProperty().addListener(
-            (observable, oldValue, newValue) -> rellenarTablaHoras(newValue);
+            (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
     }    
     
     public void setMainApp(MainApp mainApp) {
