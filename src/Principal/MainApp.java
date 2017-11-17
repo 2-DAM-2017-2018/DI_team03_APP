@@ -137,7 +137,7 @@ public class MainApp extends Application {
         launch(args);
     }
     
-    public File getPersonFilePath() {
+    public File getRecursoFilePath() {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
         String filePath = prefs.get("filePath", null);
         if (filePath != null) {
@@ -147,7 +147,7 @@ public class MainApp extends Application {
         }
     }
     
-    public void setPersonFilePath(File file) {
+    public void setRecursoFilePath(File file) {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
         if (file != null) {
             prefs.put("filePath", file.getPath());
@@ -162,7 +162,7 @@ public class MainApp extends Application {
         }
     }
     
-    public void loadPersonDataFromFile(File file) {
+    public void loadDatosRecursoFromFile(File file) {
        try {
            JAXBContext context = JAXBContext
                    .newInstance(RecursoListWrapper.class);
@@ -175,7 +175,7 @@ public class MainApp extends Application {
            datosRecursos.addAll(wrapper.getRecursos());
 
            // Save the file path to the registry.
-           setPersonFilePath(file);
+           setRecursoFilePath(file);
 
        } catch (Exception e) { // catches ANY exception
    //        Dialogs.create()
@@ -185,7 +185,7 @@ public class MainApp extends Application {
        }
     }
     
-    public void savePersonDataToFile(File file) {
+    public void saveDatosRecursoToFile(File file) {
         try {
             JAXBContext context = JAXBContext
                     .newInstance(RecursoListWrapper.class);
@@ -200,7 +200,7 @@ public class MainApp extends Application {
             m.marshal(wrapper, file);
 
             // Save the file path to the registry.
-            setPersonFilePath(file);
+            setRecursoFilePath(file);
         } catch (Exception e) { // catches ANY exception
     //                Dialogs.create().title("Error")
     //                .masthead("Could not save data to file:\n" + file.getPath())
