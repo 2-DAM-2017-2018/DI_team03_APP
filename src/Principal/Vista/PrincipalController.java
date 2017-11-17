@@ -62,7 +62,7 @@ public class PrincipalController
         this.mainApp = mainApp;
         
         recursoTable.setItems(mainApp.getDatosRecursos());
-        //horasTable.
+        horarioTable.setItems(mainApp.getHoras());
     }
     
     public void rellenarTablaHoras(Recurso recurso)
