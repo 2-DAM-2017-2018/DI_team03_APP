@@ -41,8 +41,8 @@ public class MainApp extends Application {
     private ObservableList<Recurso> datosRecursos = FXCollections.observableArrayList();
 
     @Override
-    public void start(Stage stage) throws Exception {
-        this.primaryStage = primaryStage;
+    public void start(Stage stage) {
+        this.primaryStage = stage;
         this.primaryStage.setTitle("Solicitud de recursos");
 
         // set the application icon
@@ -52,6 +52,10 @@ public class MainApp extends Application {
 
         showPrincipal();
     }
+    
+    public MainApp() {
+        datosRecursos.add(new Recurso(1, "Gimnasio"));
+    }
 
     public ObservableList<Recurso> getDatosRecursos() {
         return datosRecursos;
@@ -60,7 +64,7 @@ public class MainApp extends Application {
     public void initRootLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
+            loader.setLocation(MainApp.class.getResource("Vista/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             Scene scene = new Scene(rootLayout);
@@ -79,7 +83,7 @@ public class MainApp extends Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/Principal.fxml"));
+            loader.setLocation(MainApp.class.getResource("Vista/Principal.fxml"));
             AnchorPane principal = (AnchorPane) loader.load();
 
             rootLayout.setCenter(principal);
@@ -92,11 +96,11 @@ public class MainApp extends Application {
         }
     }
     
-    public boolean mostrarAgregarSala() {
+    public boolean mostrarEditarRecurso() {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/AgregarSala.fxml"));
+            loader.setLocation(MainApp.class.getResource("Vista/EditarRecurso.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             // Create the dialog Stage.
