@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package Principal.Vista;
 
 import Modelo.Recurso;
 import Modelo.Hora;
@@ -53,9 +53,7 @@ public class PrincipalController
     public void initialize()
     {
         recursoColumn.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
-        horasColumn.setCellValueFactory(cellData -> cellData.getValue().getHora());
-        libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibre());
-        
+                
         recursoTable.getSelectionModel().selectedItemProperty().addListener(
             (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
     }    
@@ -64,11 +62,13 @@ public class PrincipalController
         this.mainApp = mainApp;
         
         recursoTable.setItems(mainApp.getDatosRecursos());
+        //horasTable.
     }
     
     public void rellenarTablaHoras(Recurso recurso)
     {
-        
+        horasColumn.setCellValueFactory(cellData -> cellData.getValue().getHora());
+        libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibre());
     }
     
     @FXML

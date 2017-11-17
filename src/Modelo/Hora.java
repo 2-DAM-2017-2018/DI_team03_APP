@@ -5,7 +5,6 @@
  */
 package Modelo;
 
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -16,7 +15,7 @@ public class Hora
 {
     private StringProperty hora;
     private StringProperty libre;
-
+    
     public Hora(StringProperty hora, StringProperty libre) {
         this.hora = hora;
         this.libre = libre;
