@@ -8,10 +8,10 @@ package Principal;
 import Modelo.Hora;
 import Modelo.Recurso;
 import Modelo.RecursoListWrapper;
-import Vista.EditarRecursoController;
-import Vista.PieChartStatisticController;
-import Vista.PrincipalController;
-import Vista.RootLayoutController;
+import Principal.Vista.EditarRecursoController;
+import Principal.Vista.PieChartStatisticController;
+import Principal.Vista.PrincipalController;
+import Principal.Vista.RootLayoutController;
 import java.io.File;
 import java.io.IOException;
 import java.util.prefs.Preferences;
@@ -71,7 +71,7 @@ public class MainApp extends Application {
     public void initRootLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getClassLoader().getResource("Vista/RootLayout.fxml"));
+            loader.setLocation(MainApp.class.getResource("Vista/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             Scene scene = new Scene(rootLayout);
