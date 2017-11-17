@@ -67,8 +67,8 @@ public class PrincipalController
     
     public void rellenarTablaHoras(Recurso recurso)
     {
-        horasColumn.setCellValueFactory(cellData -> cellData.getValue().getHora());
-        libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibre());
+        horasColumn.setCellValueFactory(cellData -> cellData.getValue().getHoraProperty());
+        libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibreProperty());
     }
     
     @FXML

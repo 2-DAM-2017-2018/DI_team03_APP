@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -16,12 +17,15 @@ public class Hora
     private StringProperty hora;
     private StringProperty libre;
     
-    public Hora(StringProperty hora, StringProperty libre) {
-        this.hora = hora;
-        this.libre = libre;
+    public Hora(String hora, String libre) {
+        this.hora = new SimpleStringProperty(hora);
+        this.libre = new SimpleStringProperty(libre);
     }
 
-    public StringProperty getHora() {
+    public String getHora() {
+        return hora.get();
+    }
+    public StringProperty getHoraProperty() {
         return hora;
     }
 
@@ -29,7 +33,10 @@ public class Hora
         this.hora = hora;
     }
 
-    public StringProperty getLibre() {
+    public String getLibre() {
+        return libre.get();
+    }
+    public StringProperty getLibreProperty() {
         return libre;
     }
 

@@ -57,7 +57,13 @@ public class MainApp extends Application {
     
     public MainApp() {
         datosRecursos.add(new Recurso(1, "Gimnasio"));
-//        horas.add(new Hora());
+        horas.add(new Hora("Primera", "Si"));
+        horas.add(new Hora("Segunda", "Si"));
+        horas.add(new Hora("Tercera", "Si"));
+        horas.add(new Hora("Cuarta", "Si"));
+        horas.add(new Hora("Quinta", "Si"));
+        horas.add(new Hora("Sexta", "Si"));
+        horas.add(new Hora("Tarde", "Si"));
     }
 
     public ObservableList<Recurso> getDatosRecursos() {
@@ -88,7 +94,6 @@ public class MainApp extends Application {
 
     public void showPrincipal() {
         try {
-            // Load person overview.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("Vista/Principal.fxml"));
             AnchorPane principal = (AnchorPane) loader.load();
