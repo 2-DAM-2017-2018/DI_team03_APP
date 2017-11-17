@@ -38,7 +38,7 @@ public class PieChartStatisticController {
         
     }
     
-    public void setPersonData(List<Person> persons) {
+    /*public void setPersonData(List<Person> persons) {
         int[] monthCounter = new int[12];
         int totalCounter = 0;
         for (Person p : persons) {
@@ -54,5 +54,5 @@ public class PieChartStatisticController {
         }
         
         
-    }
+    }*/
 }
