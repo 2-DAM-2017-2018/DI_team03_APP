@@ -47,7 +47,7 @@ public class PrincipalController
     private MainApp mainApp;
     
     public PrincipalController()
-    {      
+    {
     }
     
     public void initialize()
@@ -62,13 +62,13 @@ public class PrincipalController
         this.mainApp = mainApp;
         
         recursoTable.setItems(mainApp.getDatosRecursos());
-        horarioTable.setItems(mainApp.getHoras());
     }
     
     public void rellenarTablaHoras(Recurso recurso)
     {
         if(recurso != null)
         {
+            horarioTable.setItems(mainApp.getHoras());
             horasColumn.setCellValueFactory(cellData -> cellData.getValue().getHoraProperty());
             libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibreProperty());
         }
