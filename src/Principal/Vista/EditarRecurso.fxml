@@ -6,6 +6,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.AgregarSalaController">
-    
+<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Principal.Vista.EditarRecursoController">
+   <children>
+      <GridPane layoutX="26.0" layoutY="13.0" prefHeight="91.0" prefWidth="391.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Identificador" />
+            <Label text="Nombre" GridPane.rowIndex="1" />
+            <TextField fx:id="idField" GridPane.columnIndex="1" />
+            <TextField fx:id="nombreField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Button layoutX="156.0" layoutY="184.0" mnemonicParsing="false" text="Aceptar" />
+      <Button layoutX="289.0" layoutY="184.0" mnemonicParsing="false" text="Cancelar" />
+   </children>
 </AnchorPane>
