@@ -23,6 +23,7 @@ public class Recurso {
     public Recurso() {
         this.id = new SimpleIntegerProperty(0);
         this.nombre = new SimpleStringProperty("");
+        horario = new ArrayList<>();
         horario.add(new Hora("Primera", "Si"));
         horario.add(new Hora("Segunda", "Si"));
         horario.add(new Hora("Tercera", "Si"));
@@ -35,6 +36,7 @@ public class Recurso {
     public Recurso(int id, String nombre) {
         this.id = new SimpleIntegerProperty(id);
         this.nombre = new SimpleStringProperty(nombre);
+        horario = new ArrayList<>();
         horario.add(new Hora("Primera", "Si"));
         horario.add(new Hora("Segunda", "Si"));
         horario.add(new Hora("Tercera", "Si"));
