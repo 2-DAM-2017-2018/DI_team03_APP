@@ -59,6 +59,17 @@ public class Recurso {
     public Hora getHora(int pos) {
         return horario.get(pos);
     }
+    public void cambiarEstadoHora(StringProperty hora, String estado) {
+        boolean salir = false;
+        while(!salir) {
+            int i = 0;
+            if(horario.get(i).getHoraProperty() == hora) {
+                horario.get(i).setHora(estado);
+            }
+            i++;
+        }
+            
+    }
 
     public void setHora(int pos, Hora hora) {
         this.horario.set(pos, hora);
