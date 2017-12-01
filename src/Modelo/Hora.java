@@ -30,8 +30,8 @@ public class Hora
         return hora;
     }
 
-    public void setHora(StringProperty hora) {
-        this.hora = hora;
+    public void setHora(String hora) {
+        this.hora.set(hora);
     }
 
     public String getLibre() {

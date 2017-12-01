@@ -9,6 +9,8 @@ import Modelo.Recurso;
 import Modelo.Hora;
 import Principal.MainApp;
 import java.time.LocalDate;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -107,12 +109,27 @@ public class PrincipalController
     @FXML
     private void botonSolicitar()
     {
-        
+        horarioTable.getSelectionModel().selectedItemProperty().addListener(
+            (observable, oldValue, newValue) -> solicitarHora(newValue));
+        recursoTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
     }
     
     @FXML
     private void botonAnular()
     {
         
+    }
+    
+    public void solicitarHora(Hora hora)
+    {
+        if(hora != null)
+        {
+            StringProperty libre = new SimpleStringProperty("No");
+            hora.setLibre(libre);
+            System.out.println(hora.getHora());
+            System.out.println(hora.getLibre());
+            
+        }
     }
 }
