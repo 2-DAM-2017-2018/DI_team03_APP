@@ -10,6 +10,8 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -18,12 +20,12 @@ import javafx.beans.property.StringProperty;
 public class Recurso {
     private StringProperty nombre;
     private IntegerProperty id;
-    private ArrayList<Hora> horario;
+    private ObservableList<Hora> horario;
 
     public Recurso() {
         this.id = new SimpleIntegerProperty(0);
         this.nombre = new SimpleStringProperty("");
-        horario = new ArrayList<>();
+        horario = FXCollections.observableArrayList();
         horario.add(new Hora("Primera", "Si"));
         horario.add(new Hora("Segunda", "Si"));
         horario.add(new Hora("Tercera", "Si"));
@@ -36,7 +38,7 @@ public class Recurso {
     public Recurso(int id, String nombre) {
         this.id = new SimpleIntegerProperty(id);
         this.nombre = new SimpleStringProperty(nombre);
-        horario = new ArrayList<>();
+        horario = FXCollections.observableArrayList();
         horario.add(new Hora("Primera", "Si"));
         horario.add(new Hora("Segunda", "Si"));
         horario.add(new Hora("Tercera", "Si"));
@@ -46,11 +48,11 @@ public class Recurso {
         horario.add(new Hora("Tarde", "Si"));
     }
 
-    public ArrayList<Hora> getHorario() {
+    public ObservableList<Hora> getHorario() {
         return horario;
     }
     
-    public void setHorario(ArrayList<Hora> horario) {
+    public void setHorario(ObservableList<Hora> horario) {
         this.horario = horario;
     }
     

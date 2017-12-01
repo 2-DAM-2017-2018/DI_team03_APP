@@ -40,7 +40,6 @@ public class MainApp extends Application {
     private BorderPane rootLayout;
 
     private ObservableList<Recurso> datosRecursos = FXCollections.observableArrayList();
-    private ObservableList<Hora> horas = FXCollections.observableArrayList();
 
     @Override
     public void start(Stage stage) {
@@ -57,21 +56,10 @@ public class MainApp extends Application {
     
     public MainApp() {
         datosRecursos.add(new Recurso(1, "Gimnasio"));
-        horas.add(new Hora("Primera", "Si"));
-        horas.add(new Hora("Segunda", "Si"));
-        horas.add(new Hora("Tercera", "Si"));
-        horas.add(new Hora("Cuarta", "Si"));
-        horas.add(new Hora("Quinta", "Si"));
-        horas.add(new Hora("Sexta", "Si"));
-        horas.add(new Hora("Tarde", "Si"));
     }
 
     public ObservableList<Recurso> getDatosRecursos() {
         return datosRecursos;
-    }
-    
-    public ObservableList<Hora> getHoras() {
-        return horas;
     }
 
     public void initRootLayout() {
