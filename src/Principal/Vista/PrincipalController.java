@@ -109,10 +109,10 @@ public class PrincipalController
     @FXML
     private void botonSolicitar()
     {
-        horarioTable.getSelectionModel().selectedItemProperty().addListener(
+        /*horarioTable.getSelectionModel().selectedItemProperty().addListener(
             (observable, oldValue, newValue) -> solicitarHora(newValue));
         recursoTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
+                (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));*/
     }
     
     @FXML
@@ -121,15 +121,13 @@ public class PrincipalController
         
     }
     
-    public void solicitarHora(Hora hora)
+    /*public void solicitarHora(Hora hora)
     {
         if(hora != null)
         {
-            StringProperty libre = new SimpleStringProperty("No");
-            hora.setLibre(libre);
-            System.out.println(hora.getHora());
-            System.out.println(hora.getLibre());
+            String libre = "No";
+            StringProperty h = new SimpleStringProperty(hora.getHora());
             
         }
-    }
+    }*/
 }

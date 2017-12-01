@@ -13,7 +13,7 @@ import javafx.scene.control.DatePicker;
  *
  * @author Felipe Pérez Sillero
  */
-public class Hora 
+public class Hora
 {
     private StringProperty hora;
     private StringProperty libre;
@@ -44,5 +44,5 @@ public class Hora
     public void setLibre(StringProperty libre) {
         this.libre = libre;
     }
-    
+     
 }
