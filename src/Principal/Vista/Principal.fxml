@@ -41,7 +41,7 @@
                   </TableView>
                   <Label alignment="CENTER" layoutX="86.0" layoutY="14.0" text="Solicitud" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0" />
                   <Button fx:id="solicitar" layoutX="39.0" layoutY="361.0" mnemonicParsing="false" onAction="#botonSolicitar" text="Solicitar" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="30.0" />
-                  <Button fx:id="borrar" layoutX="111.0" layoutY="361.0" mnemonicParsing="false" onAction="#botonBorrar" text="Borrar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="30.0" />
+                  <Button fx:id="anular" layoutX="111.0" layoutY="361.0" mnemonicParsing="false" onAction="#botonAnular" text="Anular" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="30.0" />
                </children>
                <opaqueInsets>
                   <Insets />

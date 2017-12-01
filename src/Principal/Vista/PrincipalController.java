@@ -8,6 +8,7 @@ package Principal.Vista;
 import Modelo.Recurso;
 import Modelo.Hora;
 import Principal.MainApp;
+import java.time.LocalDate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -42,7 +43,7 @@ public class PrincipalController
     @FXML
     private Button solicitar;
     @FXML
-    private Button borrar;
+    private Button anular;
     
     private MainApp mainApp;
     
@@ -110,7 +111,7 @@ public class PrincipalController
     }
     
     @FXML
-    private void botonBorrar()
+    private void botonAnular()
     {
         
     }
