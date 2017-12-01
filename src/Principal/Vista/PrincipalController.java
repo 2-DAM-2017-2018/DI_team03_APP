@@ -69,7 +69,7 @@ public class PrincipalController
     {
         if(recurso != null)
         {
-            horarioTable.setItems(mainApp.getHoras());
+            horarioTable.setItems(Recurso.getHorario());
             horasColumn.setCellValueFactory(cellData -> cellData.getValue().getHoraProperty());
             libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibreProperty());
         }

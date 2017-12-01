@@ -20,7 +20,7 @@ import javafx.collections.ObservableList;
 public class Recurso {
     private StringProperty nombre;
     private IntegerProperty id;
-    private ObservableList<Hora> horario;
+    private static ObservableList<Hora> horario;
 
     public Recurso() {
         this.id = new SimpleIntegerProperty(0);
@@ -48,7 +48,7 @@ public class Recurso {
         horario.add(new Hora("Tarde", "Si"));
     }
 
-    public ObservableList<Hora> getHorario() {
+    public static ObservableList<Hora> getHorario() {
         return horario;
     }
     
