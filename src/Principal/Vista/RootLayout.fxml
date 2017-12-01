@@ -16,11 +16,6 @@
               <MenuItem mnemonicParsing="false" text="Cargar" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Estadisticas">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Uso de salas" />
-            </items>
-          </Menu>
           <Menu mnemonicParsing="false" text="Ayuda">
             <items>
               <MenuItem mnemonicParsing="false" text="Acerca..." />

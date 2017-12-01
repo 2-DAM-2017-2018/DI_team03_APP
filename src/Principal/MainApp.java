@@ -9,7 +9,6 @@ import Modelo.Hora;
 import Modelo.Recurso;
 import Modelo.RecursoListWrapper;
 import Principal.Vista.EditarRecursoController;
-import Principal.Vista.PieChartStatisticController;
 import Principal.Vista.PrincipalController;
 import Principal.Vista.RootLayoutController;
 import java.io.File;
@@ -204,28 +203,4 @@ public class MainApp extends Application {
     //                .showException(e);
         }
     }
-    
-    
-    /*public void showPieChart() {
-       try {
-           FXMLLoader loader = new FXMLLoader();
-           loader.setLocation(MainApp.class.getResource("Vista/PieChartStatistic.fxml"));
-           AnchorPane page = (AnchorPane) loader.load();
-           Stage dialogStage = new Stage();
-           dialogStage.setTitle("Estadisticas de Reservas");
-           dialogStage.initModality(Modality.WINDOW_MODAL);
-           dialogStage.initOwner(primaryStage);
-           Scene scene = new Scene(page);
-           dialogStage.setScene(scene);
-
-           PieChartStatisticController controller = loader.getController();
-           //controller.setDatosRecursos(datosRecursos);
-
-           dialogStage.show();
-
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-   }*/
-
 }
