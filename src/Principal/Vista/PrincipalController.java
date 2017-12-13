@@ -57,6 +57,8 @@ public class PrincipalController
     {
         recursoColumn.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
                 
+        /*Recurso r = recursoTable.getSelectionModel().getSelectedItem();
+        rellenarTablaHoras(r);*/
         recursoTable.getSelectionModel().selectedItemProperty().addListener(
             (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
     }    
@@ -74,6 +76,7 @@ public class PrincipalController
             horarioTable.setItems(Recurso.getHorario());
             horasColumn.setCellValueFactory(cellData -> cellData.getValue().getHoraProperty());
             libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibreProperty());
+            horarioTable.refresh();
         }
     }
     
@@ -109,27 +112,15 @@ public class PrincipalController
     @FXML
     private void botonSolicitar()
     {
-        horarioTable.getSelectionModel().selectedItemProperty().addListener(
-            (observable, oldValue, newValue) -> solicitarHora(newValue));
-        recursoTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
+        Hora s = horarioTable.getSelectionModel().getSelectedItem();
+        StringProperty libre = new SimpleStringProperty("No");
+        s.setLibre(libre);
+        horarioTable.refresh();
     }
     
     @FXML
     private void botonAnular()
     {
         
-    }
-    
-    public void solicitarHora(Hora hora)
-    {
-        if(hora != null)
-        {
-            StringProperty libre = new SimpleStringProperty("No");
-            hora.setLibre(libre);
-            System.out.println(hora.getHora());
-            System.out.println(hora.getLibre());
-            
-        }
     }
 }
