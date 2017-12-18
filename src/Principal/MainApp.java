@@ -5,7 +5,6 @@
  */
 package Principal;
 
-import Modelo.Hora;
 import Modelo.Recurso;
 import Modelo.RecursoListWrapper;
 import Principal.Vista.EditarRecursoController;
@@ -18,7 +17,6 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
