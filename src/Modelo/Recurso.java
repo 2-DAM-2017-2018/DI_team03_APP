@@ -14,7 +14,7 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author Felipe Pérez Sillero
+ * @author Alejandro
  */
 public class Recurso {
     private StringProperty nombre;

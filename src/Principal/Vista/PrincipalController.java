@@ -96,6 +96,7 @@ public class PrincipalController
         int selectedIndex = recursoTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             recursoTable.getItems().remove(selectedIndex);
+            horarioTable.setItems(null);
         } else {
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
