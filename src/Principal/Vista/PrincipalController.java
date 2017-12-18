@@ -8,7 +8,6 @@ package Principal.Vista;
 import Modelo.Recurso;
 import Modelo.Hora;
 import Principal.MainApp;
-import java.time.LocalDate;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
@@ -151,7 +150,7 @@ public class PrincipalController
             alert.setTitle("Sin seleccióin");
             alert.setHeaderText("No hay horas seleccionadas");
             alert.setContentText("Porfavor selecciona una hora de la tabla");
-
+            
             alert.showAndWait();
         }
     }
