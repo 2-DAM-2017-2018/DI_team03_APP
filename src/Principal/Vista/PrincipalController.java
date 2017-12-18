@@ -85,7 +85,8 @@ public class PrincipalController
     {
         Recurso tempRecurso = new Recurso();
         boolean okClicked = mainApp.mostrarEditarRecurso(tempRecurso);
-        if (okClicked) {
+        if (okClicked) 
+        {
             mainApp.getDatosRecursos().add(tempRecurso);
         }
     }
@@ -112,15 +113,46 @@ public class PrincipalController
     @FXML
     private void botonSolicitar()
     {
-        Hora s = horarioTable.getSelectionModel().getSelectedItem();
-        StringProperty libre = new SimpleStringProperty("No");
-        s.setLibre(libre);
-        horarioTable.refresh();
+        int selectedIndex = horarioTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0)
+        {
+            Hora s = horarioTable.getSelectionModel().getSelectedItem();
+            StringProperty libre = new SimpleStringProperty("No");
+            s.setLibre(libre);
+            horarioTable.refresh();
+        }
+        else 
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("Sin seleccióin");
+            alert.setHeaderText("No hay horas seleccionadas");
+            alert.setContentText("Porfavor selecciona una hora de la tabla");
+
+            alert.showAndWait();
+        }
     }
     
     @FXML
     private void botonAnular()
     {
-        
+        int selectedIndex = horarioTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0)
+        {
+            Hora s = horarioTable.getSelectionModel().getSelectedItem();
+            StringProperty libre = new SimpleStringProperty("Si");
+            s.setLibre(libre);
+            horarioTable.refresh();
+        }
+        else 
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("Sin seleccióin");
+            alert.setHeaderText("No hay horas seleccionadas");
+            alert.setContentText("Porfavor selecciona una hora de la tabla");
+
+            alert.showAndWait();
+        }
     }
 }
