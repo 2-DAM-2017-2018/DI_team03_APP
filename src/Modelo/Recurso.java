@@ -26,26 +26,26 @@ public class Recurso {
         this.id = new SimpleIntegerProperty(0);
         this.nombre = new SimpleStringProperty("");
         horario = FXCollections.observableArrayList();
-        horario.add(new Hora("Primera", "Si"));
-        horario.add(new Hora("Segunda", "Si"));
-        horario.add(new Hora("Tercera", "Si"));
-        horario.add(new Hora("Cuarta", "Si"));
-        horario.add(new Hora("Quinta", "Si"));
-        horario.add(new Hora("Sexta", "Si"));
-        horario.add(new Hora("Tarde", "Si"));
+        horario.add(new Hora("08:00-09:00", "Si"));
+        horario.add(new Hora("09:00-10:00", "Si"));
+        horario.add(new Hora("10:00-11:00", "Si"));
+        horario.add(new Hora("11:30-12:30", "Si"));
+        horario.add(new Hora("12:30-13:30", "Si"));
+        horario.add(new Hora("13:30-14:30", "Si"));
+        horario.add(new Hora("16:00-17:00", "Si"));
     }
 
     public Recurso(int id, String nombre) {
         this.id = new SimpleIntegerProperty(id);
         this.nombre = new SimpleStringProperty(nombre);
         horario = FXCollections.observableArrayList();
-        horario.add(new Hora("Primera", "Si"));
-        horario.add(new Hora("Segunda", "Si"));
-        horario.add(new Hora("Tercera", "Si"));
-        horario.add(new Hora("Cuarta", "Si"));
-        horario.add(new Hora("Quinta", "Si"));
-        horario.add(new Hora("Sexta", "Si"));
-        horario.add(new Hora("Tarde", "Si"));
+        horario.add(new Hora("08:00-09:00", "Si"));
+        horario.add(new Hora("09:00-10:00", "Si"));
+        horario.add(new Hora("10:00-11:00", "Si"));
+        horario.add(new Hora("11:30-12:30", "Si"));
+        horario.add(new Hora("12:30-13:30", "Si"));
+        horario.add(new Hora("13:30-14:30", "Si"));
+        horario.add(new Hora("16:00-17:00", "Si"));
     }
 
     public static ObservableList<Hora> getHorario() {
