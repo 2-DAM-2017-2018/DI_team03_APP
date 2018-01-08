@@ -59,15 +59,18 @@ public class PrincipalController
         /*Recurso r = recursoTable.getSelectionModel().getSelectedItem();
         rellenarTablaHoras(r);*/
         recursoTable.getSelectionModel().selectedItemProperty().addListener(
-            (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
+        (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
     }    
     
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
         
         recursoTable.setItems(mainApp.getDatosRecursos());
+        eliminar.setDisable(true);
+        solicitar.setDisable(true);
+        anular.setDisable(true);
     }
-    
+
     public void rellenarTablaHoras(Recurso recurso)
     {
         if(recurso != null)
@@ -89,7 +92,7 @@ public class PrincipalController
             mainApp.getDatosRecursos().add(tempRecurso);
         }
     }
-    
+        
     @FXML
     private void botonEliminar()
     {
@@ -97,6 +100,7 @@ public class PrincipalController
         if (selectedIndex >= 0) {
             recursoTable.getItems().remove(selectedIndex);
             horarioTable.setItems(null);
+            eliminar.setDisable(true);
         } else {
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -106,6 +110,29 @@ public class PrincipalController
             alert.setContentText("Porfavor selecciona un recurso de la tabla");
 
             alert.showAndWait();
+        }
+    }
+    
+    @FXML
+    private void comprobarRecurso() {
+        int selectedIndex = recursoTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            eliminar.setDisable(false);
+        }
+    }
+    
+    @FXML
+    private void comprobarHora() {
+        int selectedIndex = horarioTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            Hora s = horarioTable.getSelectionModel().getSelectedItem();
+            if("Si".equals(s.getLibre())) {
+                solicitar.setDisable(false);
+                anular.setDisable(true);
+            } else {
+                solicitar.setDisable(true);
+                anular.setDisable(false);
+            }
         }
     }
         
@@ -120,6 +147,9 @@ public class PrincipalController
             StringProperty libre = new SimpleStringProperty("No");
             s.setLibre(libre);
             horarioTable.refresh();
+            solicitar.setDisable(true);
+            anular.setDisable(false);
+            System.out.println(calendario.getValue());
         }
         else 
         {
@@ -143,6 +173,8 @@ public class PrincipalController
             StringProperty libre = new SimpleStringProperty("Si");
             s.setLibre(libre);
             horarioTable.refresh();
+            solicitar.setDisable(false);
+            anular.setDisable(true);
         }
         else 
         {

@@ -33,7 +33,7 @@
                </HBox.margin></AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="horarioTable" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                  <TableView fx:id="horarioTable" layoutY="83.0" onMouseClicked="#comprobarHora" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                      <columns>
                         <TableColumn fx:id="horasColumn" prefWidth="100.0" text="Horas" />
                         <TableColumn fx:id="libreColumn" prefWidth="99.0" text="¿Libre?" />
