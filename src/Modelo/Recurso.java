@@ -49,16 +49,32 @@ public class Recurso {
         return this.cal.get(pos);
     }
     
-    public boolean comprobarFecha(Fecha fecha) {
-        boolean existe = false;
+    public int comprobarFecha(Fecha fecha) {
+        int existe = -1;
         for(int i = 0; i < cal.size(); i++) {
             String fechaSeleccionada = fecha.getFecha();
             String fechaComprobar = cal.get(i).getFecha();
             if(fechaSeleccionada.equals(fechaComprobar)) {
-                existe = true;
+                existe = i;
             }
         }
         return existe;
+    }
+    
+    public int comprobarFecha(String fecha) {
+        int existe = -1;
+        for(int i = 0; i < cal.size(); i++) {
+            String fechaSeleccionada = fecha;
+            String fechaComprobar = cal.get(i).getFecha();
+            if(fechaSeleccionada.equals(fechaComprobar)) {
+                existe = i;
+            }
+        }
+        return existe;
+    }
+    
+    public void addFecha(Fecha f) {
+        this.cal.add(f);
     }
     
     public int getId() {

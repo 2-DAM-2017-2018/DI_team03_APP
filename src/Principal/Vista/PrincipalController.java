@@ -5,11 +5,13 @@
  */
 package Principal.Vista;
 
+import Modelo.Fecha;
 import Modelo.Recurso;
 import Modelo.Hora;
 import Principal.MainApp;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -75,7 +77,15 @@ public class PrincipalController
     {
         if(recurso != null)
         {
-            horarioTable.setItems(Recurso.getCal());
+            String fecha = String.valueOf(calendario.getValue());
+            
+            if(recurso.comprobarFecha(fecha) == -1) {
+                Fecha f = new Fecha(fecha);
+                recurso.addFecha(f);
+            }
+            ObservableList<Hora> horas = recurso.getFecha(recurso.comprobarFecha(fecha)).getHorario();
+            
+            horarioTable.setItems(horas);
             horasColumn.setCellValueFactory(cellData -> cellData.getValue().getHoraProperty());
             libreColumn.setCellValueFactory(cellData -> cellData.getValue().getLibreProperty());
             horarioTable.refresh();
@@ -150,8 +160,12 @@ public class PrincipalController
         if (selectedIndex >= 0)
         {
             Recurso r = recursoTable.getSelectionModel().getSelectedItem();
-            r.getHora(selectedIndex).setLibre(new SimpleStringProperty("No"));
-            r.setHora(selectedIndex, r.getHora(selectedIndex));
+            
+            String fecha = String.valueOf(calendario.getValue());
+            
+            
+            r.getFecha(r.comprobarFecha(fecha)).getHora(selectedIndex).setLibre(new SimpleStringProperty("No"));
+            r.getFecha(r.comprobarFecha(fecha)).setHora(r.getFecha(r.comprobarFecha(fecha)).getHora(selectedIndex), selectedIndex);
             /*Hora s = horarioTable.getSelectionModel().getSelectedItem();
             StringProperty libre = new SimpleStringProperty("No");
             s.setLibre(libre);*/

@@ -44,6 +44,10 @@ public class Fecha
         return horario.get(pos);
     }
     
+    public void setHora(Hora hora,int pos) {
+        this.horario.set(pos, hora);
+    }
+    
     public String getFecha() {
         return fecha.get();
     }
