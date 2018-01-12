@@ -26,7 +26,7 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Label alignment="CENTER" layoutX="86.0" layoutY="6.0" text="Días" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0" />
-                  <DatePicker fx:id="calendario" layoutX="13.0" layoutY="188.0" />
+                  <DatePicker fx:id="calendario" layoutX="13.0" layoutY="188.0" onAction="#actionCalendario" />
                </children>
                <HBox.margin>
                   <Insets />

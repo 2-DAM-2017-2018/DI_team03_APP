@@ -58,8 +58,8 @@ public class PrincipalController
                 
         /*Recurso r = recursoTable.getSelectionModel().getSelectedItem();
         rellenarTablaHoras(r);*/
-        recursoTable.getSelectionModel().selectedItemProperty().addListener(
-        (observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
+        //recursoTable.getSelectionModel().selectedItemProperty().addListener(
+        //(observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
     }    
     
     public void setMainApp(MainApp mainApp) {
@@ -91,6 +91,12 @@ public class PrincipalController
         {
             mainApp.getDatosRecursos().add(tempRecurso);
         }
+    }
+    @FXML
+    private void actionCalendario(){
+        Recurso recurso = recursoTable.getSelectionModel().getSelectedItem();
+        rellenarTablaHoras(recurso);
+        System.out.println("accion");
     }
         
     @FXML
@@ -143,9 +149,13 @@ public class PrincipalController
         int selectedIndex = horarioTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0)
         {
-            Hora s = horarioTable.getSelectionModel().getSelectedItem();
+            Recurso r = recursoTable.getSelectionModel().getSelectedItem();
+            r.getHora(selectedIndex).setLibre(new SimpleStringProperty("No"));
+            r.setHora(selectedIndex, r.getHora(selectedIndex));
+            /*Hora s = horarioTable.getSelectionModel().getSelectedItem();
             StringProperty libre = new SimpleStringProperty("No");
-            s.setLibre(libre);
+            s.setLibre(libre);*/
+            rellenarTablaHoras(r);
             horarioTable.refresh();
             solicitar.setDisable(true);
             anular.setDisable(false);
