@@ -107,6 +107,8 @@ public class PrincipalController
         Recurso recurso = recursoTable.getSelectionModel().getSelectedItem();
         rellenarTablaHoras(recurso);
         System.out.println("accion");
+        solicitar.setDisable(true);
+        anular.setDisable(true);
     }
         
     @FXML
