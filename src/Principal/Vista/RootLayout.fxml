@@ -12,13 +12,16 @@
         <menus>
           <Menu mnemonicParsing="false" text="Archivo">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Guardar" />
-              <MenuItem mnemonicParsing="false" text="Cargar" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleNew" text="Nuevo" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Guardar Como" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Guardar" />
+              <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Cargar" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Salir" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Ayuda">
             <items>
-              <MenuItem mnemonicParsing="false" text="Acerca..." />
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="Acerca..." />
             </items>
           </Menu>
         </menus>

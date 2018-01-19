@@ -8,6 +8,8 @@ package Principal.Vista;
 import Principal.MainApp;
 import java.io.File;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import org.controlsfx.dialog.Dialogs;
 
@@ -80,20 +82,16 @@ public class RootLayoutController {
     
     @FXML
     private void handleAbout() {
-        Dialogs.create()
-            .title("Reservar Recurso")
-            .masthead("Sobre")
-            .message("Autores: \n\tAlejandro Ariza\n\tFelipe Pérez")
-            .showInformation();
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Acerca de");
+        alert.setHeaderText(null);
+        alert.setContentText("Autores: \n\tAlejandro Ariza\n\tFelipe Pérez");
+
+        alert.showAndWait();
     }
     
     @FXML
     private void handleExit() {
         System.exit(0);
     }
-    
-   @FXML
-   private void handleShowPieChart() {
-     //mainApp.showPieChart();
-   }
 }
