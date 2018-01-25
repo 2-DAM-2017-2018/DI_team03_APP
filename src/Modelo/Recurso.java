@@ -14,7 +14,7 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author Alejandro
+ * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class Recurso {
     private StringProperty nombre;

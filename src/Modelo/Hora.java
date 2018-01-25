@@ -10,7 +10,7 @@ import javafx.beans.property.StringProperty;
 
 /**
  *
- * @author Felipe Pérez Sillero
+ * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class Hora
 {

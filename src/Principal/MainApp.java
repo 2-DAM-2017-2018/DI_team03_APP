@@ -29,7 +29,7 @@ import javax.xml.bind.Unmarshaller;
 
 /**
  *
- * @author Alejandro
+ * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class MainApp extends Application {
 

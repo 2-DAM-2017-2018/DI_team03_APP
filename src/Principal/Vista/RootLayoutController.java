@@ -16,7 +16,7 @@ import org.controlsfx.dialog.Dialogs;
 /**
  * FXML Controller class
  *
- * @author Alejandro
+ * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class RootLayoutController {
 

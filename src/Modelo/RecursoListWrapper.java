@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Alejandro
+ * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 @XmlRootElement(name = "recursos")
 public class RecursoListWrapper {

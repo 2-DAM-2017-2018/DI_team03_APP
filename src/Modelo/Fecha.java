@@ -13,7 +13,7 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author Felipe Pérez Sillero
+ * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class Fecha 
 {

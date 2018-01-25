@@ -22,7 +22,7 @@ import javafx.scene.control.TableView;
 /**
  * FXML Controller class
  *
- * @author Felipe Pérez Sillero
+ * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class PrincipalController
 {
