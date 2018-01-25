@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- *
+ * La clase EditarRecursoController controla la ventana de crear recurso
  * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class EditarRecursoController {
@@ -28,16 +28,24 @@ public class EditarRecursoController {
     private boolean okClicked = false;
     
     /**
-     * Initializes the controller class.
+     * Método que se ejecuta al inizializar la clase
      */
     @FXML
     private void initialize() {
     }    
     
+    /**
+     * Modifica el campo de texto
+     * @param dialogStage texto que le pasamos por parámetro
+     */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
     
+    /**
+     * Modifica el nombre y el id del recurso
+     * @param recurso recurso que le pasamos por parámetro
+     */
     public void setRecurso(Recurso recurso) {
         this.recurso = recurso;
 
@@ -45,10 +53,17 @@ public class EditarRecursoController {
         nombreField.setText(recurso.getNombre());
     }
     
+    /**
+     * Comprueba si clickas el botón Ok
+     * @return devuelve verdadero o falso
+     */
     public boolean isOkClicked() {
         return okClicked;
     }
     
+    /**
+     * Acción que realiza el botón Ok
+     */
     @FXML
     private void handleOk() {
         if (isInputValid()) {
@@ -60,6 +75,9 @@ public class EditarRecursoController {
         }
     }
     
+    /**
+     * Acción que realiza el botón Cancelar
+     */
     @FXML
     private void handleCancel() {
         dialogStage.close();

@@ -12,7 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- *
+ * La clase Fecha indica la fecha en la que se solicita el recurso
  * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class Fecha 
@@ -20,6 +20,10 @@ public class Fecha
     private StringProperty fecha;
     private static ObservableList<Hora> horario;
     
+    /**
+     * Constructor por parametros
+     * @param fecha fecha que se le pasa por parametro
+     */
     public Fecha(String fecha) {
         this.fecha = new SimpleStringProperty(fecha);
         horario = FXCollections.observableArrayList();
@@ -32,30 +36,60 @@ public class Fecha
         horario.add(new Hora("16:00-17:00", "Si"));
     }
     
+    /**
+     * Devuelve el horario
+     * @return devuelbe un ObservableList<Hora>
+     */
     public static ObservableList<Hora> getHorario() {
         return horario;
     }
     
+    /**
+     * Modifica el horario
+     * @param horario horario que se le pasa por parametro
+     */
     public void setHorario(ObservableList<Hora> horario) {
         this.horario = horario;
     }
     
+    /**
+     * Devuelve la hora del horario
+     * @param pos posicion del horario que pasamos por parámetro
+     * @return devuelve una Hora
+     */
     public Hora getHora(int pos) {
         return horario.get(pos);
     }
     
+    /**
+     * Modifica la hora del horario
+     * @param hora hora que le pasamos por parámetro
+     * @param pos posicion del horario que pasamos por parámetro
+     */
     public void setHora(Hora hora,int pos) {
         this.horario.set(pos, hora);
     }
     
+    /**
+     * Devuelve la fecha
+     * @return devuelve un string
+     */
     public String getFecha() {
         return fecha.get();
     }
 
+    /**
+     * Modifica la fecha
+     * @param fecha fecha que le pasamos por parámetro
+     */
     public void setFecha(String fecha) {
         this.fecha.set(fecha);
     }
     
+    /**
+     * Devuelve la fecha
+     * @return devuelve un string
+     */
     public StringProperty fechaProperty() {
         return fecha;
     }

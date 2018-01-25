@@ -21,7 +21,7 @@ import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
- *
+ * La clase PrincipalControler se encarga de controlar la ventana principal de la aplicación
  * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class PrincipalController
@@ -50,10 +50,16 @@ public class PrincipalController
     
     private MainApp mainApp;
     
+    /**
+     * Constructor por defecto
+     */
     public PrincipalController()
     {
     }
     
+    /**
+     * Metodo que se ejecuta al inicializar
+     */
     public void initialize()
     {
         recursoColumn.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
@@ -64,6 +70,10 @@ public class PrincipalController
         //(observable, oldValue, newValue) -> rellenarTablaHoras(newValue));
     }    
     
+    /**
+     * Modifica la clase principal de la aplicación
+     * @param mainApp clase principal que le pasamos como parámetro
+     */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
         
@@ -73,6 +83,10 @@ public class PrincipalController
         anular.setDisable(true);
     }
 
+    /**
+     * Rellena la tabla de horas de un recurso
+     * @param recurso recurso que pasamos por parámetro
+     */
     public void rellenarTablaHoras(Recurso recurso)
     {
         if(recurso != null)
@@ -92,6 +106,9 @@ public class PrincipalController
         }
     }
     
+    /**
+     * Acción que realiza el botón Nuevo
+     */
     @FXML
     private void botonNuevo()
     {
@@ -102,6 +119,10 @@ public class PrincipalController
             mainApp.getDatosRecursos().add(tempRecurso);
         }
     }
+    
+    /**
+     * Acción que se realiza al seleccionar una fecha del calendario
+     */
     @FXML
     private void actionCalendario(){
         Recurso recurso = recursoTable.getSelectionModel().getSelectedItem();
@@ -111,6 +132,9 @@ public class PrincipalController
         anular.setDisable(true);
     }
         
+    /**
+     * Acción que realiza el botón eliminar
+     */
     @FXML
     private void botonEliminar()
     {
@@ -131,6 +155,9 @@ public class PrincipalController
         }
     }
     
+    /**
+     * Comprueba el recurso seleccionado
+     */
     @FXML
     private void comprobarRecurso() {
         int selectedIndex = recursoTable.getSelectionModel().getSelectedIndex();
@@ -139,6 +166,9 @@ public class PrincipalController
         }
     }
     
+    /**
+     * Comprueba la hora seleccionada
+     */
     @FXML
     private void comprobarHora() {
         int selectedIndex = horarioTable.getSelectionModel().getSelectedIndex();
@@ -154,7 +184,9 @@ public class PrincipalController
         }
     }
         
-    
+    /**
+     * Acción que realiza el botón Solicitar
+     */
     @FXML
     private void botonSolicitar()
     {
@@ -189,6 +221,9 @@ public class PrincipalController
         }
     }
     
+    /**
+     * Acción que realiza el botón Anular
+     */
     @FXML
     private void botonAnular()
     {
