@@ -190,7 +190,7 @@ public class MainApp extends Application {
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
             RecursoListWrapper wrapper = new RecursoListWrapper();
-            wrapper.setPersons(datosRecursos);
+            wrapper.setRecursos(datosRecursos);
 
             m.marshal(wrapper, file);
 
