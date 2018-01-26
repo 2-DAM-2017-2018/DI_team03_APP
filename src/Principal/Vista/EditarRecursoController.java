@@ -83,6 +83,10 @@ public class EditarRecursoController {
         dialogStage.close();
     }
     
+    /**
+     * Comprueba los datos que se han introducido
+     * @return devuelve verdadero o falso
+     */
     private boolean isInputValid() {
         String errorMessage = "";
 

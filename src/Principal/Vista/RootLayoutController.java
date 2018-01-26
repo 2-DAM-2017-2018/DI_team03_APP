@@ -15,23 +15,33 @@ import org.controlsfx.dialog.Dialogs;
 
 /**
  * FXML Controller class
- *
+ * La clase RootLayoutController controla la ventana RootLayout
  * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class RootLayoutController {
 
     private MainApp mainApp;
 
+    /**
+     * Modifica el objeto mainApp
+     * @param mainApp mainApp que le pasamos por parámetro
+     */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
     
+    /**
+     * Acción que realiza el menú Nuevo
+     */
     @FXML
     private void handleNew() {
         mainApp.getDatosRecursos().clear();
         mainApp.setRecursoFilePath(null);
     }
     
+    /**
+     * Acción que realiza el menú Cargar
+     */
     @FXML
     private void handleOpen() {
         FileChooser fileChooser = new FileChooser();
@@ -49,6 +59,9 @@ public class RootLayoutController {
         }
     }
 
+    /**
+     * Acción que realiza el menú Guardar
+     */
     @FXML
     private void handleSave() {
         File recursoFile = mainApp.getRecursoFilePath();
@@ -59,6 +72,9 @@ public class RootLayoutController {
         }
     }
     
+    /**
+     * Acción que realiza el menú Guardar como
+     */
     @FXML
     private void handleSaveAs() {
         FileChooser fileChooser = new FileChooser();
@@ -80,6 +96,9 @@ public class RootLayoutController {
         }
     }
     
+    /**
+     * Acción que realiza el menú Sobre
+     */
     @FXML
     private void handleAbout() {
         Alert alert = new Alert(AlertType.INFORMATION);
@@ -90,6 +109,9 @@ public class RootLayoutController {
         alert.showAndWait();
     }
     
+    /**
+     * Acción que realiza el menú Salir
+     */
     @FXML
     private void handleExit() {
         System.exit(0);
