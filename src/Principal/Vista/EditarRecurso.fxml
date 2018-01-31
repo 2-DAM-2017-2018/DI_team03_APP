@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Principal.Vista.EditarRecursoController">
+<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="507.0" stylesheets="@../../Recursos/DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Principal.Vista.EditarRecursoController">
    <children>
       <GridPane layoutX="26.0" layoutY="13.0" prefHeight="91.0" prefWidth="391.0">
         <columnConstraints>
@@ -27,4 +27,8 @@
       <Button layoutX="156.0" layoutY="184.0" mnemonicParsing="false" onAction="#handleOk" text="Aceptar" />
       <Button layoutX="289.0" layoutY="184.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
    </children>
+   <styleClass>
+      <String fx:value="label-bright" />
+      <String fx:value="background" />
+   </styleClass>
 </AnchorPane>
