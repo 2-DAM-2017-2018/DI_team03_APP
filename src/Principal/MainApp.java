@@ -28,7 +28,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 /**
- *
+ * Clase principal de la aplicaçao
  * @author Alejandro Ariza Guerrero y Felipe Pérez Sillero
  */
 public class MainApp extends Application {
@@ -37,7 +37,10 @@ public class MainApp extends Application {
     private BorderPane rootLayout;
 
     private ObservableList<Recurso> datosRecursos = FXCollections.observableArrayList();
-
+    /**
+     * Método que se inicia al construir la aplicación y que genera el stage principal
+     * @param stage Variable de tipo Stage que será la que se lance como principal
+     */
     @Override
     public void start(Stage stage) {
         this.primaryStage = stage;
@@ -50,15 +53,22 @@ public class MainApp extends Application {
 
         showPrincipal();
     }
-    
+    /**
+     * Método que se ejecuta al iniciar la aplicación
+     */
     public MainApp() {
         datosRecursos.add(new Recurso(1, "Gimnasio"));
     }
-
+    /**
+     * Método que devuelve el array de los datos de Recursos
+     * @return Devuelve una variable ObservableList de tipo Recurso
+     */
     public ObservableList<Recurso> getDatosRecursos() {
         return datosRecursos;
     }
-
+    /**
+     * Método que establece el RootLayout de la aplicación
+     */
     public void initRootLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -76,7 +86,9 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Método que lanza la ventana Principal de la aplicación
+     */
     public void showPrincipal() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -92,7 +104,11 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-    
+    /**
+     * Método que lanza la ventana Editar Recurso
+     * @param recurso Variable de tipo Recurso que indica el recurso a editar
+     * @return Devuelve una variable tipo boolean con valor false en caso de dar error
+     */
     public boolean mostrarEditarRecurso(Recurso recurso) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
@@ -125,15 +141,25 @@ public class MainApp extends Application {
             return false;
         }
     }
-    
+    /**
+     * Método que devuelve el Stage primario de la aplicación
+     * @return Devuelve una variable tipo Stage
+     */
     public Stage getPrimaryStage() {
         return primaryStage;
     }
-
+    /**
+     * Método principal de la clase
+     * @param args Argumentos de inicio de la clase
+     */
     public static void main(String[] args) {
         launch(args);
     }
-    
+    /**
+     * Método que devuelve la ruta del archivo de cargado/guardado
+     * @return Devuelve una variable de tipo File en el caso de que se haya ya 
+     * establecido la ruta, en caso de que no, devolverá null
+     */
     public File getRecursoFilePath() {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
         String filePath = prefs.get("filePath", null);
@@ -143,7 +169,10 @@ public class MainApp extends Application {
             return null;
         }
     }
-    
+    /**
+     * Método que establece la ruta del archivo de cargado/guardado
+     * @param file Variable de tipo File
+     */
     public void setRecursoFilePath(File file) {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
         if (file != null) {
@@ -158,7 +187,10 @@ public class MainApp extends Application {
             primaryStage.setTitle("AddressApp");
         }
     }
-    
+    /**
+     * Método  que lleva a cabo la acción de cargar
+     * @param file Variable de tipo File que indicará el archivo del que se carga
+     */
     public void loadDatosRecursoFromFile(File file) {
        try {
            JAXBContext context = JAXBContext
@@ -181,7 +213,10 @@ public class MainApp extends Application {
    //                .showException(e);
        }
     }
-    
+    /**
+     * Método  que lleva a cabo la acción de guardar
+     * @param file Variable de tipo File que indicará el archivo donde se guarda
+     */
     public void saveDatosRecursoToFile(File file) {
         try {
             JAXBContext context = JAXBContext
