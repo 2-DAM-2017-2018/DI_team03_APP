@@ -38,7 +38,7 @@ public class Fecha
     
     /**
      * Devuelve el horario
-     * @return devuelbe un ObservableList<Hora>
+     * @return devuelbe un ObservableList
      */
     public static ObservableList<Hora> getHorario() {
         return horario;
